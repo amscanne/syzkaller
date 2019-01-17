@@ -349,7 +349,7 @@ const configTempl = `
 		"path": "%[1]v",
 		"readonly": true
 	},
-	"process":{
+	"process": {
                 "args": ["/init"],
                 "cwd": "/tmp",
                 "env": ["SYZ_GVISOR_PROXY=1"],
@@ -360,7 +360,14 @@ const configTempl = `
                 	"permitted": [%[2]v],
                 	"ambient": [%[2]v]
                 }
-	}
+	},
+	"mounts": [
+                {
+                        "destination": "/sys/kernel/debug",
+                        "type": "debugfs",
+                        "source": "debugfs"
+                }
+        ]
 }
 `
 
